@@ -5,6 +5,15 @@ public class Radio {
     private int stationsTotal = 10;
     private int stationNumber;
     private int volume;
+    private int maxVolume = 100;
+
+    public Radio() {
+    }
+
+    public Radio(int stationsTotal, int maxVolume) {
+        this.stationsTotal = stationsTotal;
+        this.maxVolume = maxVolume;
+    }
 
     public int getStationsTotal() {
 
@@ -53,7 +62,7 @@ public class Radio {
     }
 
     public void setVolume(int volume) {
-        if (volume > 100) {
+        if (volume > maxVolume) {
             return;
         }
         if (volume < 0) {
@@ -65,7 +74,7 @@ public class Radio {
 
     public void increaseVolume() {
 
-        if (volume < 100) {
+        if (volume < maxVolume) {
             volume = volume + 1;
         }
     }
