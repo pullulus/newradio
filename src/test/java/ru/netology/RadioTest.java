@@ -9,6 +9,20 @@ class RadioTest {
     private Radio radio = new Radio();
 
     @Test
+    public void shouldInitStationsTotalField() {
+
+        assertEquals(10, radio.getStationsTotal());
+    }
+
+    @Test
+    public void getAndSetStationsTotal() {
+
+        radio.setStationsTotal(15);
+
+        assertEquals(15, radio.getStationsTotal());
+    }
+
+    @Test
     public void getAndSetStationNumber() {
 
         radio.setStationNumber(5);
@@ -17,11 +31,11 @@ class RadioTest {
     }
 
     @Test
-    public void getAndSetStationNumberEqualsMax() {
+    public void getAndSetStationNumberEqualsTotal() {
 
-        radio.setStationNumber(9);
+        radio.setStationNumber(10);
 
-        assertEquals(9, radio.getStationNumber());
+        assertEquals(10, radio.getStationNumber());
     }
 
     @Test
@@ -33,9 +47,9 @@ class RadioTest {
     }
 
     @Test
-    public void getAndSetStationNumberOverMax() {
+    public void getAndSetStationNumberOverTotal() {
 
-        radio.setStationNumber(10);
+        radio.setStationNumber(11);
 
         assertEquals(0, radio.getStationNumber());
     }
@@ -49,47 +63,47 @@ class RadioTest {
     }
 
     @Test
-    public void increaseStationNumber() {
+    public void nextStationNumber() {
 
         radio.setStationNumber(7);
-        radio.increaseStationNumber();
+        radio.nextStationNumber();
 
         assertEquals(8, radio.getStationNumber());
     }
 
     @Test
-    public void increaseStationNumberEqualsMax() {
+    public void nextStationNumberEqualsTotal() {
 
-        radio.setStationNumber(9);
-        radio.increaseStationNumber();
+        radio.setStationNumber(10);
+        radio.nextStationNumber();
 
         assertEquals(0, radio.getStationNumber());
     }
 
     @Test
-    public void decreaseStationNumber() {
+    public void previousStationNumber() {
 
         radio.setStationNumber(6);
-        radio.decreaseStationNumber();
+        radio.previousStationNumber();
 
         assertEquals(5, radio.getStationNumber());
     }
 
     @Test
-    public void decreaseStationNumberEqualsMin() {
+    public void previousStationNumberEqualsMin() {
 
         radio.setStationNumber(0);
-        radio.decreaseStationNumber();
+        radio.previousStationNumber();
 
-        assertEquals(9, radio.getStationNumber());
+        assertEquals(10, radio.getStationNumber());
     }
 
     @Test
     public void setAndGetVolume() {
 
-            radio.setVolume(4);
+            radio.setVolume(47);
 
-            assertEquals(4, radio.getVolume());
+            assertEquals(47, radio.getVolume());
 
         }
 
@@ -97,15 +111,15 @@ class RadioTest {
     @Test
     public void setAndGetVolumeEqualsMax() {
 
-            radio.setVolume(10);
+            radio.setVolume(100);
 
-            assertEquals(10, radio.getVolume());
+            assertEquals(100, radio.getVolume());
         }
 
         @Test
         public void setAndGetVolumeOverMax() {
 
-            radio.setVolume(12);
+            radio.setVolume(102);
 
             assertEquals(0, radio.getVolume());
         }
@@ -130,28 +144,28 @@ class RadioTest {
     @Test
     void increaseVolume() {
 
-            radio.setVolume(7);
+            radio.setVolume(77);
             radio.increaseVolume();
 
-            assertEquals(8, radio.getVolume());
+            assertEquals(78, radio.getVolume());
         }
 
         @Test
         public void increaseVolumeEqualsMax() {
 
-            radio.setVolume(10);
+            radio.setVolume(100);
             radio.increaseVolume();
 
-            assertEquals(10, radio.getVolume());
+            assertEquals(100, radio.getVolume());
         }
 
 
     @Test
     public void decreaseVolume() {
-            radio.setVolume(4);
+            radio.setVolume(99);
             radio.decreaseVolume();
 
-            assertEquals(3, radio.getVolume());
+            assertEquals(98, radio.getVolume());
         }
 
         @Test
